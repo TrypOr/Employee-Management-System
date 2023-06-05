@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Change pay</title>
+		<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form action="/process-form" method="post">
+        <label for="salary_type">Salary type:</label><br>
+        <select id="salary_type" name="salary_type" onchange="showSalaryFields()">
+          <option value="permanent_administrative">Permanent Administrative</option>
+          <option value="permanent_teaching_staff">Permanent Teaching Staff</option>
+          <option value="administrative_contract_holder">Administrative Contract Holder</option>
+          <option value="contract_holder_teaching_staff">Contract Holder Teaching Staff</option>
+        </select><br>
+        <div id="permanent_administrative_fields" style="display:none">
+          <label for="permanent_administrative_salary">Salary:</label><br>
+          <input type="number" id="permanent_administrative_salary" name="permanent_administrative_salary" min="800"><br>
+          <label for="permanent_administrative_benefits">Benefits:</label><br>
+          <input type="text" id="permanent_administrative_benefits" name="permanent_administrative_benefits"><br>
+          <input type="submit" value="Submit">  
+        </div>
+        <div id="permanent_teaching_staff_fields" style="display:none">
+          <label for="permanent_teaching_staff_salary">Salary:</label><br>
+          <input type="number" id="permanent_teaching_staff_salary" name="permanent_teaching_staff_salary" min="800"><br>
+          <label for="permanent_teaching_staff_benefits">Benefits:</label><br>
+          <input type="text" id="permanent_teaching_staff_benefits" name="permanent_teaching_staff_benefits"><br>
+          <input type="submit" value="Submit">  
+        </div>
+        <div id="administrative_contract_holder_fields" style="display:none">
+          <label for="administrative_contract_holder_salary">Salary:</label><br>
+          <input type="number" id="administrative_contract_holder_salary" name="administrative_contract_holder_salary" min="800"><br>
+          <label for="administrative_contract_holder_benefits">Benefits:</label><br>
+          <input type="text" id="administrative_contract_holder_benefits" name="administrative_contract_holder_benefits"><br>
+          <input type="submit" value="Submit">  
+        </div>
+        <div id="contract_holder_teaching_staff_fields" style="display:none">
+          <label for="contract_holder_teaching_staff_salary">Salary:</label><br>
+          <input type="number" id="contract_holder_teaching_staff_salary" name="contract_holder_teaching_staff_salary" min="800"><br>
+          <label for="contract_holder_teaching_staff_benefits">Benefits:</label><br>
+          <input type="text" id="contract_holder_teaching_staff_benefits" name="contract_holder_teaching_staff_benefits"><br>
+          <input type="submit" value="Submit">  
+</form>      
+  </body>
+  </html>  
+
+  <script>
+    function showSalaryFields() {
+        var salaryType = document.getElementById("salary_type").value;
+        switch (salaryType) {
+          case "permanent_administrative":
+            document.getElementById("permanent_administrative_fields").style.display = "block";
+            document.getElementById("permanent_teaching_staff_fields").style.display = "none";
+            document.getElementById("administrative_contract_holder_fields").style.display = "none";
+            document.getElementById("contract_holder_teaching_staff_fields").style.display = "none";
+            break;
+          case "permanent_teaching_staff":
+            document.getElementById("permanent_administrative_fields").style.display = "none";
+            document.getElementById("permanent_teaching_staff_fields").style.display = "block";
+            document.getElementById("administrative_contract_holder_fields").style.display = "none";
+            document.getElementById("contract_holder_teaching_staff_fields").style.display = "none";
+            break;
+          case "administrative_contract_holder":
+            document.getElementById("permanent_administrative_fields").style.display = "none";
+            document.getElementById("permanent_teaching_staff_fields").style.display = "none";
+            document.getElementById("administrative_contract_holder_fields").style.display = "block";
+            document.getElementById("contract_holder_teaching_staff_fields").style.display = "none";
+            break;
+          case "contract_holder_teaching_staff":
+            document.getElementById("permanent_administrative_fields").style.display = "none";
+            document.getElementById("permanent_teaching_staff_fields").style.display = "none";
+            document.getElementById("administrative_contract_holder_fields").style.display = "none";
+            document.getElementById("contract_holder_teaching_staff_fields").style.display = "block";
+            break;
+        }
+      }
+      
+  
+  </script>    

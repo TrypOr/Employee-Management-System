@@ -1,0 +1,51 @@
+h1, label {
+  font-family: 'Roboto', sans-serif;
+}
+.container{
+  display:flex;
+   justify-content:center;
+   align-items:center;
+   height:100vh;
+}
+body {
+  background-color: #f2f2f2;
+}
+form {
+  flex-wrap: wrap;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  padding: 25px;
+  margin-bottom: 20px;
+}
+input[type="text"], input[type="date"],select, input[type="number"] {
+  background-color: #f2f2f2;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  background-color: #4caf50;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+input[type="submit"]:hover {
+  background-color: #43a047;
+}
+input[type="password"]{
+background-color: #f2f2f2;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  padding: 10px;
+}
+label {
+  display: block;
+  margin-bottom: 5px;
+}  

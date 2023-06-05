@@ -1,0 +1,67 @@
+  <!DOCTYPE html>
+  <html>
+  <head>
+      <title>Add new contract employee</title>
+          <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <form action="/process-form" method="post">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br> 
+          <label for="family_situation">Family Situation:</label><br>
+          <select id="family_situation" name="family_situation" onchange="showChildrenFields()">
+            <option value="not_married">Not Married</option>
+            <option value="married">Married</option>
+          </select><br>
+          <div id="children_fields" style="display:none;">
+            <label for="num_children">Number of Children:</label><br>
+            <input type="number" id="num_children" name="num_children" onchange="createChildrenAgeFields()" min="0"><br>
+            <div id="children_ages_fields"><br></div>
+          </div></div>
+        <label for="type_of_worker">Type of Worker:</label><br>
+        <select id="type_of_worker" name="type_of_worker">
+            <option value="administrative_contract_holder">Administrative Contract Holder</option>
+            <option value="contract_holder_teaching_staff">Contract Holder Teaching Staff</option>
+        </select><br>
+        <label for="department">Department:</label><br>
+        <input type="text" id="department" name="department"><br>
+        <label for="start_date">Start Date:</label><br>
+        <input type="date" id="start_date" name="start_date"><br>
+        <label for="end_date">End Date:</label><br>
+        <input type="date" id="end_date" name="end_date"><br>
+        <label for="adress">Address:</label><br>
+        <input type="text" id="adress" name="adress"><br>
+        <label for="bank_id">Bank ID:</label><br>
+        <input type="text" id="bank_id" name="bank_id"><br>
+        <label for="bank_name">Bank Name:</label><br>
+        <input type="text" id="bank_name" name="bank_name"><br>
+        <input type="submit" value="Submit">  
+      </form>
+    </body>
+    </html>  
+      <script>
+        function showChildrenFields() {
+          var familySituation = document.getElementById("family_situation").value;
+          if (familySituation == "married") {
+            document.getElementById("children_fields").style.display = "block";
+          } else {
+            document.getElementById("children_fields").style.display = "none";
+            document.getElementById("num_children").value = "";
+            document.getElementById("children_ages_fields").innerHTML = "";
+          }
+        }
+      
+        function createChildrenAgeFields() {
+          var numChildren = document.getElementById("num_children").value;
+          if (numChildren > 0) {
+            var childrenAgesFields = document.getElementById("children_ages_fields");
+            childrenAgesFields.innerHTML = "";
+            for (var i = 0; i < numChildren; i++) {
+              childrenAgesFields.innerHTML += '<label for="child' + (i+1) + '_age">Age of Child ' + (i+1) + ':</label><br><input type="number" id="child' + (i+1) + '_age" name="child' + (i+1) + '_age"><br>';
+            }
+          } else {
+            document.getElementById("children_ages_fields").innerHTML = "";
+          }
+        }
+      </script>
+     
